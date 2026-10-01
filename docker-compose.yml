@@ -1,0 +1,14 @@
+services:
+  amnezia-config-gen:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: amnezia-config-gen:latest
+    container_name: amnezia-config-gen
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOST=0.0.0.0

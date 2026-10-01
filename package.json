@@ -29,6 +29,7 @@
   },
   "scripts": {
     "start": "vercel dev",
+    "serve": "node server.js",
     "build": "echo \"No build step required\"",
     "presets:fallback": "node scripts/dump-presets-fallback.js",
     "lint": "eslint . --max-warnings 0",

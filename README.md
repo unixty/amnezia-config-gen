@@ -221,11 +221,28 @@ Experimental and research targets are **not** stable exporters — they are labe
 they are not mistaken for a working import path. The generator reduces manual configuration, but
 it does not guarantee connectivity in every network or client.
 
+## Docker Deployment
+
+The project is fully containerized and can run without host Node.js or Vercel CLI dependencies:
+
+### Using Docker Compose (Recommended)
+```bash
+docker compose up -d --build
+```
+The web application will be accessible at `http://localhost:3000`. The container includes an automatic health check (`/healthz`).
+
+### Using Docker CLI
+```bash
+docker build -t amnezia-config-gen .
+docker run -d --name amnezia-config-gen -p 3000:3000 --restart unless-stopped amnezia-config-gen
+```
+
 ## NPM scripts
 
 | Command | Action |
 |---|---|
 | `npm start` | `vercel dev` |
+| `npm run serve` | Start standalone production HTTP server (`server.js`) |
 | `npm run lint` | ESLint (`--max-warnings 0`) |
 | `npm test` | Run all tests via built-in `node:test` |
 | `npm run test:coverage` | Run tests with experimental coverage |

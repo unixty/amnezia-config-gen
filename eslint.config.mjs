@@ -36,9 +36,9 @@ export default [
     },
   },
   {
-    files: ['api/**/*.js', 'src/server/**/*.js'],
+    files: ['server.js', 'api/**/*.js', 'src/server/**/*.js'],
     rules: {
-      'no-console': 'off', // console allowed in serverless functions
+      'no-console': 'off', // console allowed in server and serverless functions
     },
   },
   {

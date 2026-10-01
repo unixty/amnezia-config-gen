@@ -220,11 +220,28 @@ Experimental и research форматы **не** являются стабиль
 чтобы их не приняли за рабочий путь импорта. Генератор снижает количество ручной настройки, но не
 гарантирует работу в любой сети и любом клиенте.
 
+## Развертывание в Docker
+
+Проект полностью готов к развертыванию в Docker:
+
+### Через Docker Compose (рекомендуется)
+```bash
+docker compose up -d --build
+```
+Веб-интерфейс будет доступен по адресу `http://localhost:3000`. Контейнер включает автоматический healthcheck (`/healthz`).
+
+### Напрямую через Docker
+```bash
+docker build -t amnezia-config-gen .
+docker run -d --name amnezia-config-gen -p 3000:3000 --restart unless-stopped amnezia-config-gen
+```
+
 ## NPM-скрипты
 
 | Команда | Действие |
 |---|---|
 | `npm start` | `vercel dev` |
+| `npm run serve` | Запуск автономного HTTP-сервера (`server.js`) |
 | `npm run lint` | ESLint (`--max-warnings 0`) |
 | `npm test` | Все тесты через встроенный `node:test` |
 | `npm run test:coverage` | Тесты с экспериментальным coverage |

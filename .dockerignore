@@ -1,0 +1,13 @@
+node_modules
+.git
+.github
+__tests__
+docs
+.editorconfig
+.gitattributes
+.gitignore
+eslint.config.mjs
+*.md
+docker-compose*.yml
+.env*
+npm-debug.log*
